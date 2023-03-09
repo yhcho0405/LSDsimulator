@@ -10,7 +10,6 @@ if video.isOpened():
     amp = 7
     p = 0
     while True:
-        # Get an image from 'video'
         valid, img = video.read()
         if not valid:
             break
@@ -21,18 +20,18 @@ if video.isOpened():
         img[img < 0] = 0
         img[img > 255] = 255
         img = img.astype(np.uint8)
-        # Get the image difference
+
         if img_prev is None:
             img_prev = img.copy()
             continue
         img_diff = np.abs(img.astype((np.int8 if np.random.randint(0, 2) else np.int32))
-                         - img_prev).astype(np.uint8) # Alternative) cv.absdiff()
+                         - img_prev).astype(np.uint8)
         img_prev = img.copy()
         
         mask = np.any(img_diff > 50, axis=-1)
         img_diff[mask] = np.uint8(100)
         img_diff[~mask] = np.uint8(0)
-        # Show all images
+
         rows, cols = img.shape[:2]
         mapy, mapx = np.indices((rows, cols),dtype=np.float32)
         sinx = mapx + amp * np.sin(mapy/l + p)
@@ -44,7 +43,7 @@ if video.isOpened():
         new_img = cv.remap(new_img, sinx, cosy, cv.INTER_LINEAR, \
                     None, cv.BORDER_REPLICATE)
         merge = np.hstack((org_img , new_img))
-        cv.imshow('Image Difference: Original | Difference', merge)
+        cv.imshow('Original | Taking LSD', merge)
 
         # Process the key event
         key = cv.waitKey(1)
