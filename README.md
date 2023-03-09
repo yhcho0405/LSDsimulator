@@ -4,6 +4,6 @@
 이 프로젝트는 LSD를 복용하였을 때 나타나는 시각 이상 증세를 보여주어 약물 오남용에 대한 경각심을 주고자 "상상해서" 만들었습니다.
 
 ## 시연 영상(GIF)
-[YouTube Link](https://www.youtube.com/watch?v=a-ZblXJpLnM)</br>
+[Video Link](https://i.imgur.com/DSnLf0C.mp4)</br>
 ![LSD](https://user-images.githubusercontent.com/52823519/224058823-0f5aa0f1-8ed4-417a-b4b7-21868aa1da2f.gif)
 
